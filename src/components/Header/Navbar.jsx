@@ -68,6 +68,9 @@ const SpecialListItem = styled(ListItem)`
 	}
 	&:hover {
 		transform: scale(1.1);
+		a {
+			color: ${({ theme }) => theme.colors.primary};
+		}
 	}
 	a:hover,
 	a:focus,
@@ -79,50 +82,67 @@ const SpecialListItem = styled(ListItem)`
 	}
 `;
 
+const NavListItem = ({ label, route, isSpecial }) => {
+	if (!isSpecial) {
+		return (
+			<ListItem>
+				<NavLink
+					to={route}
+					className={({ isActive }) => (isActive ? 'active' : '')}
+				>
+					{label}
+				</NavLink>
+			</ListItem>
+		);
+	} else {
+		return (
+			<SpecialListItem>
+				<NavLink
+					to={route}
+					className={({ isActive }) => (isActive ? 'active' : '')}
+				>
+					{label}
+				</NavLink>
+			</SpecialListItem>
+		);
+	}
+};
+
+const routes = [
+	{
+		label: 'home',
+		route: '/home',
+		isSpecial: false,
+	},
+	{
+		label: 'about',
+		route: '/about',
+		isSpecial: false,
+	},
+	{
+		label: 'contact',
+		route: '/contact',
+		isSpecial: false,
+	},
+	{
+		label: 'sign in',
+		route: '/signin',
+		isSpecial: false,
+	},
+	{
+		label: 'sign up',
+		route: '/signup',
+		isSpecial: true,
+	},
+];
+
 const Navbar = ({ navOpen }) => {
 	return (
 		<StyledNavbar navOpen={navOpen}>
 			<NavList>
-				<ListItem>
-					<NavLink
-						to="/home"
-						className={({ isActive }) => (isActive ? 'active' : '')}
-					>
-						home
-					</NavLink>
-				</ListItem>
-				<ListItem>
-					<NavLink
-						to="/about"
-						className={({ isActive }) => (isActive ? 'active' : '')}
-					>
-						about
-					</NavLink>
-				</ListItem>
-				<ListItem>
-					<NavLink
-						to="/contact"
-						className={({ isActive }) => (isActive ? 'active' : '')}
-					>
-						contact
-					</NavLink>
-				</ListItem>
-				<ListItem>
-					<NavLink
-						to="/signin"
-						className={({ isActive }) => (isActive ? 'active' : '')}
-					>
-						sign in
-					</NavLink>
-				</ListItem>
-				<SpecialListItem>
-					<NavLink
-						to="/signup"
-						className={({ isActive }) => (isActive ? 'active' : '')}
-					>
-						sign up
-					</NavLink>
-				</SpecialListItem>
+				{routes.map((routeData) => (
+					<NavListItem key={routeData.route} {...routeData} />
+				))}
 			</NavList>
 		</StyledNavbar>
 	);

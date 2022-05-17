@@ -25,6 +25,14 @@ export const Container = styled.div`
 	margin: 0 auto;
 `;
 
+export const HamburgerContent = styled.div`
+	width: 100%;
+	padding: 0.14rem;
+	background-color: white;
+	border-radius: 1rem;
+	margin: 0;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+`;
 export const HamburgerButton = styled.button`
 	display: flex;
 	flex-direction: column;
@@ -43,20 +51,15 @@ export const HamburgerButton = styled.button`
 	font-weight: 700;
 	&:hover {
 		cursor: pointer;
-		opacity: 0.7;
+		text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
+		${HamburgerContent} {
+			box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.8);
+		}
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.small}) {
 		/* ! 600px or greater. */
 		display: none;
 	}
-`;
-export const HamburgerContent = styled.div`
-	width: 100%;
-	padding: 0.14rem;
-	background-color: white;
-	border-radius: 1rem;
-	margin: 0;
-	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 `;
 
 export const StyledHeader = styled.header`

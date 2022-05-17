@@ -30,12 +30,8 @@ jobs:
 
             - name: Build
               run: |
-                yarn
-                yarn build
-              
-            - name: Deploy GH-Pages
-              run: |
-                git config --global user.email ${{secrets.MY_EMAIL}}
-                git config --global user.name ${{secrets.MY_USERNAME}}
-                git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.REPO_NAME }}
-                yarn deploy
+                  yarn
+                  yarn build
+
+            - name: Deploy
+              run: echo hi

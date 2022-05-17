@@ -34,6 +34,7 @@ const ListItem = styled.li`
 	font-size: 1.1rem;
 	text-transform: uppercase;
 	a {
+		font-weight: bolder;
 		text-decoration: none;
 		color: white;
 	}

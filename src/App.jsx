@@ -7,7 +7,6 @@ import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import NotFound from './pages/NotFound';
-import Modal from './components/UI/Modal';
 
 const App = () => {
 	return (

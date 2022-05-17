@@ -45,7 +45,7 @@ jobs:
                 # Set this to true if want to use --force
                 useforce: true
                 # Set if your app is located in a subdirectory.
-                appdir: dist
+#                 appdir: dist
                 # Contents of the Procfile to save and deploy
 #                 procfile: # optional, default is 
 #                 # Set to true if you need upload files generated dynamically by the GitHub Action to Heroku

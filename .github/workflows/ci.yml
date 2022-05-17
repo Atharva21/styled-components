@@ -49,7 +49,9 @@ jobs:
                   #                 allow_empty_commit: # optional, default is true
                   # Build directory to deploy
                   # Whether to treat build_dir as an absolute path
-#                 absolute_build_dir: # optional, default is false
-# If enabled, the content of symbolic links will be copied
-#                 follow_symlinks: # optional, default is false
-# The committer name and email address
+              #                 absolute_build_dir: # optional, default is false
+              # If enabled, the content of symbolic links will be copied
+              #                 follow_symlinks: # optional, default is false
+              # The committer name and email address
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

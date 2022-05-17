@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 		<Provider store={store}>
 			<ThemeProvider theme={theme}>
 				<GlobalStyle />
-				<BrowserRouter>
+				<BrowserRouter basename="/styled-components/">
 					<App />
 				</BrowserRouter>
 			</ThemeProvider>

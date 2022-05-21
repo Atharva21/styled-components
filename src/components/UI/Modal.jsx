@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 const BackDrop = styled.div`
@@ -8,7 +9,7 @@ const BackDrop = styled.div`
 	bottom: 0;
 	right: 0;
 	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 1;
+	z-index: 99;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -61,7 +62,7 @@ const Modal = ({ children, onClose }) => {
 		}
 	};
 
-	return (
+	return ReactDOM.createPortal(
 		<BackDrop onClick={clickHandler}>
 			<Card>
 				<CardParent>{children}</CardParent>
@@ -69,7 +70,8 @@ const Modal = ({ children, onClose }) => {
 					<CloseButton onClick={onClose}>Close</CloseButton>
 				</CloseButtonContainer>
 			</Card>
-		</BackDrop>
+		</BackDrop>,
+		document.getElementById('modal')
 	);
 };
 
